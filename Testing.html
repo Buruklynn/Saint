@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberGuardians | Ethical Hacking Nexus</title>
+    <style>
+        :root {
+            --cyber-green: #00ff00;
+            --dark-bg: #0a0a0a;
+            --neon-glow: 0 0 10px var(--cyber-green);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--cyber-green);
+            font-family: 'Courier New', monospace;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .cyber-scroll {
+            animation: scanline 6s linear infinite;
+            position: relative;
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 -100%; }
+            100% { background-position: 0 100%; }
+        }
+
+        .glitch {
+            animation: glitch 2s infinite;
+            text-shadow: var(--neon-glow);
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 0 0 #ff00ff, -2px 0 0 #00ffff; }
+            95% { text-shadow: 2px 0 0 #ff00ff, -2px 0 0 #00ffff; }
+            100% { text-shadow: var(--neon-glow); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .cyber-border {
+            border: 3px solid var(--cyber-green);
+            box-shadow: var(--neon-glow);
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cyber-border::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 40%, var(--cyber-green) 50%, transparent 60%);
+            animation: float 4s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0,0); }
+            100% { transform: translate(100%,100%); }
+        }
+
+        h1, h2 {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        a {
+            color: var(--cyber-green);
+            text-decoration: none;
+            position: relative;
+        }
+
+        a:hover::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--cyber-green);
+            animation: link-glow 1s infinite;
+        }
+
+        @keyframes link-glow {
+            50% { box-shadow: 0 0 10px var(--cyber-green); }
+        }
+
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            background: repeating-linear-gradient(0deg, 
+                rgba(0,255,0,0.1) 0px, 
+                rgba(0,255,0,0.1) 1px, 
+                transparent 1px, 
+                transparent 20px);
+        }
+
+        .hacker-story {
+            column-count: 2;
+            column-gap: 3rem;
+            column-rule: 2px solid var(--cyber-green);
+        }
+
+        @media (max-width: 768px) {
+            .hacker-story {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix-bg"></div>
+    <div class="container">
+        <header class="cyber-border glitch">
+            <h1>// CyberGuardians: Shadows in the Machine</h1>
+            <p>>_ Initiating security protocols...</p>
+        </header>
+
+        <nav class="cyber-border">
+            <ul style="list-style: none; padding: 0; display: flex; gap: 2rem;">
+                <li><a href="#manifesto">Manifesto</a></li>
+                <li><a href="#arsenal">Digital Arsenal</a></li>
+                <li><a href="#chronicles">Chronicles</a></li>
+                <li><a href="#testing">Testing Grounds</a></li>
+            </ul>
+        </nav>
+
+        <section id="testing" class="cyber-scroll cyber-border">
+            <h2>>> Testing Grounds [Redacted]</h2>
+            <div class="hacker-story">
+                <p>The air in the virtual war room hung thick with anticipation. Agent Nyx watched the pulsating network map through her AR interface, neon glyphs dancing across her retinal display. Somewhere in this digital labyrinth, a zero-day exploit was eating through firewalls like acid through steel.</p>
+
+                <p>"Clock's ticking," growled the voice in her comms. "That ransomware hits critical infrastructure in 27 minutes." Her fingers flew across the holographic keyboard, each keystroke leaving trails of emerald light. The intrusion detection system screamed as she brute-forced her way into the enemy's command server.</p>
+
+                <p>This was no black hat's playground. Nyx and her team were the shadow architects of the cyber frontier, stress-testing systems before real adversaries could strike. Every penetration test told a story: hospitals hardening patient data, power grids reinforcing their digital barricades, financial networks learning to dance with chaos.</p>
+
+                <p>The screen before her erupted in a cascade of hexadecimal code. She'd found the killswitch - a backdoor masquerading as legitimate traffic. As she deployed the countermeasure, firewall after firewall blazed to life in her wake, tracing a glowing path through the network's defenses.</p>
+
+                <p>"Infrastructure secured," Nyx reported, leaning back as the system's self-healing protocols activated. "Vulnerability patched. Attack surface reduced by 87%." The real victory wasn't in stopping this attack, but in the hardened systems that would withstand a hundred future assaults.</p>
+
+                <p>In the neon-drenched darkness of her sanctum, Nyx allowed herself a small smile. Tomorrow would bring new challenges: AI-driven phishing campaigns, quantum-resistant cryptography puzzles, IoT botnets evolving like digital cancer. But tonight? Tonight, the city's lights stayed on, its data uncorrupted, its citizens blissfully unaware of the war waged in the spaces between ones and zeros.</p>
+            </div>
+        </section>
+
+        <footer class="cyber-border" style="text-align: center; margin-top: 4rem;">
+            <p>// Stay vigilant. Stay ethical. The network never sleeps.</p>
+            <p>>_ End transmission</p>
+        </footer>
+    </div>
+</body>
+</html>

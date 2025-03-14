@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSec Toolkit</title>
+    <style>
+        :root {
+            --neon-green: #00ff00;
+            --dark-bg: #0a0a0a;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--neon-green);
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .cyber-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+            height: 100vh;
+        }
+
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .hologram-panel {
+            border: 2px solid var(--neon-green);
+            padding: 2rem;
+            position: relative;
+            background: linear-gradient(45deg, #001a00, #003300);
+            box-shadow: 0 0 30px var(--neon-green);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .cyber-header {
+            font-size: 2.5rem;
+            text-shadow: 0 0 15px var(--neon-green);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .cyber-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--neon-green);
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .radar-scan {
+            width: 300px;
+            height: 300px;
+            border: 3px solid var(--neon-green);
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .radar-scan::before {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            border-top: 2px solid var(--neon-green);
+            border-right: 2px solid var(--neon-green);
+            animation: radar 2s linear infinite;
+        }
+
+        @keyframes radar {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .data-stream {
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid var(--neon-green);
+            padding: 1rem;
+        }
+
+        .stream-line {
+            animation: stream 20s linear infinite;
+            position: absolute;
+            white-space: nowrap;
+        }
+
+        @keyframes stream {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
+        }
+
+        .cyber-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .grid-item {
+            padding: 1rem;
+            border: 1px solid var(--neon-green);
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .grid-item:hover {
+            background: #002200;
+            box-shadow: 0 0 15px var(--neon-green);
+        }
+
+        .binary-pulse {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+    </style>
+</head>
+<body>
+    <canvas class="matrix-rain" id="matrix"></canvas>
+
+    <div class="cyber-container">
+        <div class="hologram-panel">
+            <div class="cyber-header">SAINT v4.2.1</div>
+            <div class="cyber-grid">
+                <div class="grid-item">
+                    <h3>🛡️ System Armor</h3>
+                    <p>Active Defense Matrix</p>
+                </div>
+                <div class="grid-item">
+                    <h3>🌐 Net Recon</h3>
+                    <p>23 Nodes Scanning</p>
+                </div>
+                <div class="grid-item">
+                    <h3>🔓 Crypto Core</h3>
+                    <p>Quantum Encryption</p>
+                </div>
+            </div>
+            <div class="data-stream">
+                <div class="stream-line">
+                    > Initializing quantum security protocols<br>
+                    > Establishing secure connection... [DONE]<br>
+                    > Monitoring 142 endpoints<br>
+                    > Threat detection: 0.00%<br>
+                    > Memory allocation: 84%<br>
+                    > Network throughput: 1.4Tb/s<br>
+                    > Darkweb monitoring: ACTIVE<br>
+                </div>
+            </div>
+        </div>
+
+        <div class="hologram-panel">
+            <div class="cyber-header">Live Analysis</div>
+            <div class="radar-scan"></div>
+            <div class="binary-pulse">01010011 01000101 01000011 01010101 01010010 01000101</div>
+        </div>
+    </div>
+
+    <script>
+        // Matrix rain effect
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
+        const fontSize = 14;
+        const columns = canvas.width/fontSize;
+        const drops = [];
+
+        for(let x = 0; x < columns; x++) drops[x] = 1;
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 17, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px monospace';
+
+            for(let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+                
+                if(drops[i]*fontSize > canvas.height && Math.random() > 0.975)
+                    drops[i] = 0;
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 50);
+
+        // Animate stream lines
+        const stream = document.querySelector('.stream-line');
+        stream.innerHTML = stream.innerHTML.repeat(5);
+
+        // Randomize grid items
+        document.querySelectorAll('.grid-item').forEach(item => {
+            item.style.transform = `rotate(${Math.random() * 4 - 2}deg)`;
+        });
+
+        // Add random radar blips
+        setInterval(() => {
+            const radar = document.querySelector('.radar-scan');
+            const blip = document.createElement('div');
+            blip.style.position = 'absolute';
+            blip.style.width = '10px';
+            blip.style.height = '10px';
+            blip.style.background = '#0F0';
+            blip.style.borderRadius = '50%';
+            blip.style.left = `${Math.random() * 80 + 10}%`;
+            blip.style.top = `${Math.random() * 80 + 10}%`;
+            blip.style.animation = 'pulse 1s infinite';
+            radar.appendChild(blip);
+            
+            setTimeout(() => blip.remove(), 2000);
+        }, 1500);
+    </script>
+</body>
+</html>

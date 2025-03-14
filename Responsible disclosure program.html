@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeta Disclosure Protocol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet"> <!-- Fixed missing quote -->
+    <style>
+        /* Base styles from previous implementation */
+        :root {
+            --cyber-green: #0f0;
+            --neon-glow: 0 0 10px var(--cyber-green),
+                          0 0 20px var(--cyber-green),
+                          0 0 30px var(--cyber-green);
+        }
+
+        body {
+            background-color: #001100;
+            color: var(--cyber-green);
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Add new unique styles for disclosure page */
+        .biohazard-symbol {
+            animation: rotate 4s linear infinite;
+            filter: drop-shadow(var(--neon-glow));
+        }
+
+        .dna-strand {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .dna-node {
+            width: 20px;
+            height: 20px;
+            background: var(--cyber-green);
+            transform: rotate(45deg);
+            box-shadow: var(--neon-glow);
+        }
+
+        .submission-portal {
+            border: 3px solid var(--cyber-green);
+            padding: 2rem;
+            margin: 4rem auto;
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submission-portal::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, var(--cyber-green), transparent);
+            animation: scan 4s linear infinite;
+        }
+
+        .alien-form input,
+        .alien-form textarea {
+            background: #002200;
+            border: 1px solid var(--cyber-green);
+            color: var(--cyber-green);
+            padding: 1rem;
+            margin: 1rem 0;
+            width: 100%;
+            font-family: 'Press Start 2P', monospace;
+        }
+
+        .pulse-button {
+            animation: pulse 1s infinite;
+            background: #002200;
+            border: 2px solid var(--cyber-green);
+            padding: 1rem 2rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-top: 1rem;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Modified sections for disclosure content */
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .protocol-step {
+            border: 1px solid var(--cyber-green);
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .protocol-step:hover {
+            box-shadow: var(--neon-glow);
+            transform: scale(1.05);
+        }
+
+        .reward-display {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 2rem;
+            text-align: center;
+            padding: 2rem;
+            border: 3px dashed var(--cyber-green);
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="alien-nav">
+        <ul>
+            <li><a href="#protocol">Protocol</a></li>
+            <li><a href="#submit">Submission</a></li>
+            <li><a href="#rewards">Rewards</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <section class="hologram-header">
+            <h1>▼̶̶̷ RESPONSIBLE DISCLOSURE PROGRAM</h1>
+            <p>҉ ZETA-RETICULI SECURITY PROTOCOL v7.23.45 ҉</p>
+            <div class="biohazard-symbol">☣</div>
+        </section>
+
+        <div class="dna-strand">
+            <div class="dna-node"></div>
+            <div class="dna-node"></div>
+            <div class="dna-node"></div>
+            <div class="dna-node"></div>
+            <div class="dna-node"></div>
+        </div>
+
+        <section class="security-grid">
+            <div class="protocol-step">
+                <h2>01. IDENTIFICATION</h2>
+                <p>Utilize quantum scanners to detect vulnerabilities in systems and networks.</p>
+            </div>
+            <div class="protocol-step">
+                <h2>02. ENCRYPTION</h2>
+                <p>Secure findings with alien-grade cryptography to ensure confidentiality.</p>
+            </div>
+            <div class="protocol-step">
+                <h2>03. TRANSMISSION</h2>
+                <p>Use hyperwave communications for secure reporting of vulnerabilities.</p>
+            </div>
+        </section>
+
+        <div class="reward-display">
+            [ REWARD CALCULATOR ONLINE ]
+            <div id="rewardAmount">§ 0000.00 CRYPTO-CREDITS</div>
+        </div>
+
+        <section class="submission-portal">
+            <h2>▲̶̶̷ VULNERABILITY SUBMISSION PORTAL</h2>
+            <form class="alien-form">
+                <input type="text" placeholder="IDENTIFICATION CODE" required>
+                <textarea rows="5" placeholder="ENTER VULNERABILITY DETAILS..." required></textarea>
+                <button type="submit" class="pulse-button">INITIATE TRANSMISSION</button>
+            </form>
+        </section>
+
+        <section class="alien-terminal">
+            <div class="terminal-code">
+                > INITIATING DISCLOSURE PROTOCOL...<br>
+                > ENCRYPTING PAYLOAD...<br>
+                > VERIFYING SECURITY CLEARANCE...<br>
+                > [||||||||||||||||||] 100%<br>
+                > TRANSMISSION SECURE<br>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Animated reward counter
+        let counter = 0;
+        const rewardDisplay = document.getElementById('rewardAmount');
+        
+        function updateReward() {
+            counter += Math.random() * 100;
+            rewardDisplay.textContent = `§ ${counter.toFixed(2)} CRYPTO-CREDITS`;
+            requestAnimationFrame(updateReward);
+        }
+        updateReward();
+
+        // Form submission effect
+        document.querySelector('.alien-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.querySelector('.submission-portal').style.animation = 'pulse 0.5s 3';
+            setTimeout(() => {
+                alert('[ TRANSMISSION ACCEPTED\nREWARD CALCULATING... ]');
+            }, 1500);
+        });
+
+        // Dynamic DNA strand animation
+        const dnaNodes = document.querySelectorAll('.dna-node');
+        setInterval(() => {
+            dnaNodes.forEach(node => {
+                node.style.transform = `rotate(${Math.random() * 360}deg)`;
+                node.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            });
+        }, 1000);
+    </script>
+</body>
+</html>

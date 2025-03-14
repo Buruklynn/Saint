@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroSync LogCore 2099</title>
+    <style>
+        :root {
+            --neon: #0ff3a0;
+            --neon-dark: #003b32;
+            --hud: #00ff9d33;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+
+        body {
+            background: #000a09;
+            color: var(--neon);
+            min-height: 300vh;
+            overflow-x: hidden;
+        }
+
+        .cyber-container {
+            border: 1px solid var(--neon);
+            position: relative;
+            background: linear-gradient(160deg, #001012 0%, #000908 100%);
+            box-shadow: 0 0 40px var(--hud);
+        }
+
+        .cyber-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                #0ff3a010 0px,
+                #0ff3a010 1px,
+                transparent 1px,
+                transparent 6px
+            );
+            pointer-events: none;
+        }
+
+        .hud-overlay {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at 50% 50%, #0ff3a005 0%, transparent 60%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .cyber-header {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 3px solid var(--neon);
+            margin: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cyber-header::before {
+            content: 'SYSTEM ACTIVE';
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: var(--neon-dark);
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px var(--neon);
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+            padding: 4rem;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .activity-matrix {
+            height: 80vh;
+            overflow-y: auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .matrix-line {
+            position: absolute;
+            height: 100%;
+            width: 1px;
+            background: linear-gradient(to bottom, 
+                transparent 0%,
+                var(--neon) 30%,
+                transparent 70%
+            );
+            animation: scan 8s infinite linear;
+        }
+
+        @keyframes scan {
+            0% { top: -100%; }
+            100% { top: 100%; }
+        }
+
+        .log-entry {
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border: 1px solid var(--neon);
+            background: #001010;
+            position: relative;
+            transition: 0.4s;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+        }
+
+        .log-entry:hover {
+            background: #002020;
+            transform: translateX(20px);
+            box-shadow: 10px 10px 30px var(--hud);
+        }
+
+        .neural-stats {
+            padding: 2rem;
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-globe {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, var(--neon), transparent);
+            border: 2px solid var(--neon);
+            margin: 2rem auto;
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+
+        .cyber-scroll {
+            transform: perspective(800px) rotateX(25deg);
+            transform-origin: top;
+            padding: 3rem;
+            margin: 5rem 0;
+        }
+
+        .data-stream {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 300px;
+            height: 100vh;
+            border-left: 2px solid var(--neon);
+            background: #000d0c;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .stream-item {
+            animation: stream 20s linear infinite;
+            white-space: nowrap;
+            opacity: 0.5;
+        }
+
+        @keyframes stream {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .hud-text {
+            text-shadow: 0 0 10px var(--neon);
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        .cyber-title {
+            font-size: 4rem;
+            text-transform: uppercase;
+            background: linear-gradient(to right, var(--neon) 0%, #00ccff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="hud-overlay"></div>
+    
+    <header class="cyber-container cyber-header">
+        <h1 class="cyber-title">NeuroSync LogCore</h1>
+        <div class="hud-text">VERSION 20.99.1 | QUANTUM ARCHITECTURE</div>
+    </header>
+
+    <div class="main-grid">
+        <section class="cyber-container activity-matrix">
+            <div class="matrix-line" style="left: 20%"></div>
+            <div class="matrix-line" style="left: 50%"></div>
+            <div class="matrix-line" style="left: 80%"></div>
+            
+            <div class="log-entry">
+                <div class="hud-text">[23:59:2099]</div>
+                <div class="hud-text">NEURAL PATTERN SYNCHRONIZED</div>
+                <div class="hud-text" style="color: #00ccff">COGNITIVE BOOT SEQUENCE INITIATED</div>
+            </div>
+            <!-- Repeat similar log entries with different content -->
+        </section>
+
+        <section class="neural-stats">
+            <div class="cyber-container" style="padding: 2rem">
+                <div class="stat-globe"></div>
+                <div class="hud-text" style="text-align: center">NEURAL INTEGRITY 100%</div>
+            </div>
+            <!-- Add more stats containers -->
+        </section>
+    </div>
+
+    <section class="cyber-container cyber-scroll">
+        <div class="hud-text" style="font-size: 2rem">COGNITIVE TIMELINE</div>
+        <!-- Add timeline elements -->
+    </section>
+
+    <aside class="data-stream">
+        <div class="stream-item hud-text">MEMORY ALLOCATION: 98.7ZB</div>
+        <!-- Add more streaming data items -->
+    </aside>
+
+</body>
+</html>

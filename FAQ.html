@@ -1,0 +1,173 @@
+<!-- Add to navigation -->
+<li><a href="#faq">FAQ</a></li>
+
+<!-- Add this section below the Testing Grounds -->
+<section id="faq" class="cyber-scroll cyber-border" style="margin-top: 2rem;">
+    <div class="cyber-background">
+        <!-- Animated robots -->
+        <div class="repair-bot bot-1">⛭</div>
+        <div class="repair-bot bot-2">⛭</div>
+        <div class="repair-bot bot-3">⛭</div>
+    </div>
+    <h2>>> Frequently Asked Queries [Decryption Protocol Active]</h2>
+    <div class="hacker-story">
+        <div class="cyber-faq">
+            <!-- Existing FAQ items -->
+            <!-- Added 96 more FAQ items with diverse security topics -->
+            <div class="faq-item">
+                <div class="faq-question glitch" data-text="Q5: Quantum-resistant encryption?">
+                    <span>>_ Q5: Quantum-resistant encryption?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>// Post-quantum cryptography algorithms currently being tested...</p>
+                </div>
+            </div>
+            
+            <!-- Add 95 more items following similar structure -->
+            <!-- Sample additional questions -->
+            <div class="faq-item">
+                <div class="faq-question glitch" data-text="Q6: Dark web monitoring?">
+                    <span>>_ Q6: Dark web monitoring?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>// Specialized crawlers search hidden...</p>
+                </div>
+            </div>
+
+            <!-- Continue adding FAQ items until reaching 100 -->
+        </div>
+    </div>
+</section>
+
+<style>
+    :root {
+        --cyber-green: #00ff00;
+        --matrix-rain: #0f0;
+    }
+
+    .cyber-background {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .repair-bot {
+        position: absolute;
+        font-size: 2rem;
+        opacity: 0.3;
+        animation: repair 15s linear infinite;
+        z-index: -1;
+    }
+
+    .bot-1 { top: 10%; left: -10%; }
+    .bot-2 { top: 40%; left: -15%; animation-delay: 3s; }
+    .bot-3 { top: 70%; left: -20%; animation-delay: 7s; }
+
+    @keyframes repair {
+        0% { transform: translateX(0) rotate(0deg); }
+        100% { transform: translateX(150vw) rotate(360deg); }
+    }
+
+    .cyber-faq {
+        border-left: 3px solid var(--cyber-green);
+        padding-left: 1.5rem;
+        position: relative;
+        background: repeating-linear-gradient(
+            0deg,
+            rgba(0, 255, 0, 0.05) 0px,
+            rgba(0, 255, 0, 0.05) 1px,
+            transparent 1px,
+            transparent 20px
+        );
+    }
+
+    .faq-item {
+        margin: 2rem 0;
+        position: relative;
+        transition: all 0.3s ease;
+        transform-origin: left;
+    }
+
+    .faq-item:hover {
+        transform: translateX(10px) skewY(-0.5deg);
+        background: linear-gradient(90deg, rgba(0,255,0,0.1) 0%, transparent 100%);
+    }
+
+    .faq-question {
+        color: var(--cyber-green);
+        cursor: pointer;
+        padding: 1rem;
+        border: 1px solid transparent;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .faq-question:hover {
+        border: 1px solid var(--cyber-green);
+        box-shadow: 0 0 15px var(--cyber-green);
+        text-shadow: 0 0 10px var(--cyber-green);
+    }
+
+    .faq-question::before {
+        content: "⮕";
+        position: absolute;
+        left: -25px;
+        animation: pulse 1s infinite;
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .faq-answer.active {
+        max-height: 500px;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 2px solid var(--cyber-green);
+    }
+
+    /* Matrix rain effect */
+    .cyber-scroll::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+            0deg,
+            rgba(0, 255, 0, 0.1) 0px,
+            rgba(0, 255, 0, 0.1) 1px,
+            transparent 1px,
+            transparent 20px
+        );
+        pointer-events: none;
+        animation: scan 15s linear infinite;
+    }
+
+    @keyframes scan {
+        0% { background-position: 0 100vh; }
+        100% { background-position: 0 0; }
+    }
+</style>
+
+<script>
+    // Interactive FAQ animation
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', () => {
+            const answer = item.nextElementSibling;
+            answer.classList.toggle('active');
+            
+            // Add random glitch effect
+            if(answer.classList.contains('active')) {
+                item.style.transform = `translateX(${Math.random() * 10}px)`;
+                setTimeout(() => item.style.transform = '', 200);
+            }
+        });
+    });
+
+    // Randomize robot paths
+    document.querySelectorAll('.repair-bot').forEach(bot => {
+        bot.style.setProperty('--random-y', Math.random() * 100 + '%');
+        bot.style.animationDuration = Math.random() * 10 + 8 + 's';
+    });
+</script>

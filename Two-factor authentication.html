@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeta-Protocol Authentication</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyber-green: #00ff00;
+            --neon-pulse: 0 0 15px #00ff00;
+            --dark-bg: #001a00;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--dark-bg);
+            font-family: 'Exo 2', sans-serif;
+            color: var(--cyber-green);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 600px;
+            padding: 40px;
+            background: rgba(0, 20, 0, 0.9);
+            border: 2px solid var(--cyber-green);
+            border-radius: 10px;
+            box-shadow: var(--neon-pulse);
+            backdrop-filter: blur(10px);
+        }
+
+        .alien-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5em;
+            text-shadow: var(--neon-pulse);
+            margin: 0 0 20px;
+            animation: pulse 2s infinite;
+        }
+
+        .code-inputs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .code-input {
+            width: 50px;
+            height: 70px;
+            text-align: center;
+            font-size: 2em;
+            background: rgba(0, 30, 0, 0.8);
+            border: 2px solid var(--cyber-green);
+            border-radius: 8px;
+            color: var(--cyber-green);
+            transition: all 0.3s ease;
+        }
+
+        .code-input:focus {
+            outline: none;
+            box-shadow: var(--neon-pulse);
+            transform: scale(1.1);
+        }
+
+        .verify-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #002200, #004400);
+            border: 2px solid var(--cyber-green);
+            color: var(--cyber-green);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .verify-btn:hover {
+            box-shadow: var(--neon-pulse);
+            letter-spacing: 3px;
+        }
+
+        .holographic-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cyber-green), transparent);
+            margin: 30px 0;
+            animation: scan 3s linear infinite;
+        }
+
+        .alien-glyphs {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes scan {
+            0% { background-position: -100% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .particles {
+            position: fixed;
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <div class="alien-header">
+            <h1>⏣ ZETA-PROTOCOL 2FA</h1>
+            <div class="holographic-line"></div>
+        </div>
+
+        <p class="alien-text">» ENTER QUANTUM VERIFICATION CODE TRANSMITTED TO YOUR NEURAL INTERFACE</p>
+
+        <div class="code-inputs">
+            <input type="number" class="code-input" maxlength="1" data-index="1">
+            <input type="number" class="code-input" maxlength="1" data-index="2">
+            <input type="number" class="code-input" maxlength="1" data-index="3">
+            <input type="number" class="code-input" maxlength="1" data-index="4">
+            <span style="color: var(--cyber-green); font-size: 2em">-</span>
+            <input type="number" class="code-input" maxlength="1" data-index="5">
+            <input type="number" class="code-input" maxlength="1" data-index="6">
+        </div>
+
+        <div class="holographic-line"></div>
+
+        <button class="verify-btn">INITIATE QUANTUM VERIFICATION</button>
+    </div>
+
+    <script>
+        // Input navigation logic
+        document.querySelectorAll('.code-input').forEach(input => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value.length >= 1) {
+                    const next = document.querySelector(`.code-input[data-index="${parseInt(e.target.dataset.index) + 1}"]`);
+                    if (next) next.focus();
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && e.target.value === '') {
+                    const prev = document.querySelector(`.code-input[data-index="${parseInt(e.target.dataset.index) - 1}"]`);
+                    if (prev) prev.focus();
+                }
+            });
+        });
+
+        // Particle background
+        function createParticles() {
+            const particles = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: absolute;
+                    width: 2px;
+                    height: 2px;
+                    background: var(--cyber-green);
+                    border-radius: 50%;
+                    animation: particle ${Math.random() * 5 + 3}s infinite linear;
+                `;
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.top = Math.random() * 100 + 'vh';
+                particles.appendChild(particle);
+            }
+        }
+        createParticles();
+    </script>
+</body>
+</html>
