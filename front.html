@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saint - Ethical Hacking & Security Suite</title>
+    <style>
+        :root {
+            --background-color: #0a0a0a;
+            --text-color: #00ff99;
+            --accent-color: #00ff99;
+            --card-bg: rgba(0, 255, 153, 0.1);
+            --border-color: rgba(0, 255, 153, 0.3);
+            --nav-bg: #111;
+            --section-spacing: 4rem;
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="light"] {
+            --background-color: #ffffff;
+            --text-color: #1a1a1a;
+            --card-bg: rgba(0, 0, 0, 0.05);
+            --border-color: rgba(0, 0, 0, 0.1);
+            --nav-bg: #f8f8f8;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: var(--transition);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--nav-bg);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px var(--border-color);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background: var(--card-bg);
+            color: var(--accent-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .dark-mode-toggle {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            padding: 0.5rem;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .dark-mode-toggle:hover {
+            background: var(--card-bg);
+        }
+
+        section {
+            padding: var(--section-spacing) 2rem;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 0;
+        }
+
+        .feature-list li {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            list-style: none;
+            color: rgb(166, 0, 221);
+        }
+
+        .feature-list li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px var(--border-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--nav-bg);
+            margin-top: var(--section-spacing);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #00ff99; /* Green */
+            color: #0a0a0a;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin: 5px;
+        }
+
+        .button:hover {
+            background-color: #00cc7a; /* Darker green */
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--nav-bg);
+                padding: 1rem;
+                box-shadow: 0 2px 10px var(--border-color);
+            }
+
+            nav ul.active {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <button class="mobile-menu-btn" aria-label="Toggle navigation">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="#introduction" class="active">Introduction</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#security">Security</a></li>
+                    <li><a href="#testing">Testing</a></li>
+                    <li><a href="#">what is the Future</a></li>
+                </ul>
+            </nav>
+        </div>
+        <button class="dark-mode-toggle" aria-label="Toggle dark mode">
+            <span id="mode-icon">🌙</span>
+        </button>
+    </header>
+
+    <main>
+        <section id="introduction">
+            <h1>SAINT</h1>
+            <p>The future is here.</p>
+        </section>
+
+        <section id="features">
+            <h2>Core Features</h2>
+            <ul class="feature-list">
+                <a href="#"><li>
+                    <h3>🛡️ Advanced Tracking</h3>
+                    <p>GDPR-compliant device identification</p>
+                </li></a>
+                <li>
+                    <a href="#"><h3>🌐 Live Surveillance</h3>
+                    <p>Real-time network monitoring</p>
+                </li></a>
+                <a href="#"><li>
+                    <h3>🔒 Encrypted Operations</h3>
+                    <p>End-to-end encrypted data analysis</p>
+                </li></a>
+                <li>
+                    <a href="#"><h3>📡 WiFi Auditing</h3>
+                    <p>Ethical penetration testing</p>
+                </li></a>
+            </ul>
+        </section>
+
+        <section id="security">
+            <h2>Security First</h2>
+            <ul class="feature-list">
+                <a href="#"><li>Automatic activity logging</li></a>
+                    <a href="#"><li>Two-factor authentication</li></a>
+                        <a href="#"><li>Regular third-party audits</li></a>
+                            <a href="#"><li>Responsible disclosure program</li></a>
+            </ul>
+        </section>
+
+        <!-- New Section for Google Maps Buttons -->
+        <section id="maps">
+            <h2>Open Locations in Google Maps</h2>
+            <a href="https://www.google.com/maps?q=34.8791806,-111.8265049" class="button" target="_blank">Boynton Pass</a>
+            <a href="https://www.google.com/maps?q=34.8559195,-111.7988186" class="button" target="_blank">Airport Mesa</a>
+            <a href="https://www.google.com/maps?q=34.832149,-111.7695277" class="button" target="_blank">Chapel of the Holy Cross</a>
+            <a href="https://www.google.com/maps?q=34.823736,-111.8001857" class="button" target="_blank">Red Rock Crossing</a>
+            <a href="https://www.google.com/maps?q=34.800326,-111.7665047" class="button" target="_blank">Bell Rock</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Saint Security</p>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            const body = document.body;
+            const modeIcon = document.getElementById('mode-icon');
+            const isLight = body.getAttribute('data-theme') === 'light';
+            
+            body.setAttribute('data-theme', isLight ? 'dark' : 'light');
+            modeIcon.textContent = isLight ? '🌙' : '☀️';
+            localStorage.setItem('theme', isLight ? 'dark' : 'light');
+        }
+
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+
+        // Initialize theme
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.body.setAttribute('data-theme', savedTheme);
+        document.getElementById('mode-icon').textContent = savedTheme === 'light' ? '☀️' : '🌙';
+
+        // Add click handler to dark mode button
+        document.querySelector('.dark-mode-toggle').addEventListener('click', toggleDarkMode);
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (event) => {
+            const nav = document.querySelector('nav ul');
+            const menuButton = document.querySelector('.mobile-menu-btn');
+            
+            if (!event.target.closest('nav') && !event.target.closest('.mobile-menu-btn')) {
+                nav.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
