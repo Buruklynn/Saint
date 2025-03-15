@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSec Academy v9.6.2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
+    <style>
+        :root {
+            --cyber-green: #00ff00;
+            --cyber-black: #001100;
+            --cyber-glow: rgba(0, 255, 0, 0.1);
+        }
+
+        body {
+            background: var(--cyber-black);
+            color: var(--cyber-green);
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .cyber-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* Cyber Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: #002200;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--cyber-green);
+            border: 2px solid #001100;
+            box-shadow: inset 0 0 10px #000;
+        }
+
+        .cyber-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(180deg, #001100 0%, #000 100%);
+            border-bottom: 3px solid var(--cyber-green);
+            padding: 1rem;
+            z-index: 1000;
+        }
+
+        .cyber-title {
+            font-size: 2.5rem;
+            text-shadow: 0 0 15px var(--cyber-green);
+            animation: glitch 1s infinite;
+        }
+
+        .cyber-main {
+            margin-top: 120px;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+        }
+
+        /* Cyber Navigation */
+        .cyber-nav {
+            position: sticky;
+            top: 120px;
+            height: calc(100vh - 140px);
+            border-right: 2px solid var(--cyber-green);
+            padding-right: 2rem;
+        }
+
+        .cyber-nav-item {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-left: 4px solid var(--cyber-green);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cyber-nav-item:hover {
+            background: var(--cyber-glow);
+            transform: translateX(10px);
+        }
+
+        /* Cyber Content */
+        .cyber-section {
+            background: linear-gradient(145deg, #001a00, #000);
+            border: 2px solid var(--cyber-green);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 30px var(--cyber-glow);
+        }
+
+        .cyber-terminal {
+            background: #000;
+            border: 2px solid var(--cyber-green);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .cyber-terminal::before {
+            content: "▼ SCROLL TO VIEW ALL CONTENT";
+            position: absolute;
+            bottom: -30px;
+            right: 0;
+            font-size: 0.8rem;
+            color: var(--cyber-green);
+            animation: pulse 2s infinite;
+        }
+
+        /* Interactive Elements */
+        .hack-button {
+            background: #002200;
+            border: 2px solid var(--cyber-green);
+            color: var(--cyber-green);
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .hack-button:hover {
+            background: var(--cyber-green);
+            color: #000;
+            box-shadow: 0 0 20px var(--cyber-green);
+        }
+
+        /* Animations */
+        @keyframes glitch {
+            0% { text-shadow: 0 0 15px var(--cyber-green); }
+            50% { text-shadow: -5px 0 15px #ff003c, 5px 0 15px #00ffff; }
+            100% { text-shadow: 0 0 15px var(--cyber-green); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { opacity: 0.2; }
+        }
+
+        /* Matrix Background */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 255, 0, 0.05) 0px,
+                rgba(0, 255, 0, 0.05) 2px,
+                transparent 2px,
+                transparent 6px
+            );
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix-bg"></div>
+    
+    <header class="cyber-header">
+        <div class="cyber-container">
+            <h1 class="cyber-title">CYBERSEC ACADEMY v9.6.2</h1>
+        </div>
+    </header>
+
+    <main class="cyber-container cyber-main">
+        <nav class="cyber-nav">
+            <a href="TerminalBasics.html"><div class="cyber-nav-item">Terminal Basics</div></a>
+            <a href="#"><div class="cyber-nav-item">Network Scanning</div></a>
+            <a href="#"><div class="cyber-nav-item">Cryptography</div></a>
+            <a href="#"><div class="cyber-nav-item">Web Exploitation</div></a>
+            <a href="#"><div class="cyber-nav-item">Forensics</div></a>
+        </nav>
+
+        <div class="cyber-content">
+            <!-- Terminal Basics Section -->
+            <section class="cyber-section">
+                <h2>Terminal Fundamentals</h2>
+                <div class="cyber-terminal">
+                    <pre><code class="language-bash">
+# Basic terminal commands
+$ sudo apt-get update
+$ nmap -sS -T4 192.168.1.0/24
+$ wireshark &</code></pre>
+                </div>
+                <button class="hack-button">Execute Command</button>
+            </section>
+
+            <!-- Network Scanning Tutorial -->
+            <section class="cyber-section">
+                <h2>Network Reconnaissance</h2>
+                <div class="cyber-terminal">
+                    <pre><code class="language-python">
+import nmap
+scanner = nmap.PortScanner()
+scanner.scan('192.168.1.1', '1-1024', '-v -sS')
+print(scanner.all_hosts())</code></pre>
+                </div>
+                <div class="cyber-accordion">
+                    <div class="cyber-accordion-item">
+                        <div class="cyber-accordion-header">Advanced Techniques</div>
+                        <div class="cyber-accordion-content">
+                            <p>Stealth scanning methods:</p>
+                            <pre><code class="language-bash">$ nmap -sS -T2 -f --spoof-mac 0 192.168.1.1</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cryptographic Protocols -->
+            <section class="cyber-section">
+                <h2>Encryption Methods</h2>
+                <div class="cyber-grid">
+                    <div class="cyber-card">
+                        <h3>AES-256</h3>
+                        <pre><code class="language-python">
+from Crypto.Cipher import AES
+cipher = AES.new(key, AES.MODE_GCM)</code></pre>
+                    </div>
+                    <div class="cyber-card">
+                        <h3>RSA</h3>
+                        <pre><code class="language-python">
+from Crypto.PublicKey import RSA
+key = RSA.generate(2048)</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Add more sections as needed -->
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Add interactive elements
+        document.querySelectorAll('.cyber-nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Scroll to section logic
+                const sectionId = this.textContent.toLowerCase().replace(' ', '-');
+                document.querySelector(`#${sectionId}`).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add matrix rain effect
+        const matrixCanvas = document.createElement('canvas');
+        document.body.appendChild(matrixCanvas);
+        const ctx = matrixCanvas.getContext('2d');
+        matrixCanvas.width = window.innerWidth;
+        matrixCanvas.height = window.innerHeight;
+
+        // Matrix animation code here...
+
+        // Terminal interaction
+        document.querySelectorAll('.hack-button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.parentElement.querySelector('.cyber-terminal').style.borderColor = '#ff003c';
+                setTimeout(() => {
+                    this.parentElement.querySelector('.cyber-terminal').style.borderColor = '#00ff00';
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>

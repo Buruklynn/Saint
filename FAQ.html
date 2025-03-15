@@ -1,173 +1,160 @@
-<!-- Add to navigation -->
-<li><a href="#faq">FAQ</a></li>
-
-<!-- Add this section below the Testing Grounds -->
-<section id="faq" class="cyber-scroll cyber-border" style="margin-top: 2rem;">
-    <div class="cyber-background">
-        <!-- Animated robots -->
-        <div class="repair-bot bot-1">⛭</div>
-        <div class="repair-bot bot-2">⛭</div>
-        <div class="repair-bot bot-3">⛭</div>
+<section id="faq" class="cyber-mainframe">
+    <div class="cyber-overlay">
+        <div class="scanline"></div>
+        <div class="glow-container"></div>
     </div>
-    <h2>>> Frequently Asked Queries [Decryption Protocol Active]</h2>
-    <div class="hacker-story">
-        <div class="cyber-faq">
-            <!-- Existing FAQ items -->
-            <!-- Added 96 more FAQ items with diverse security topics -->
-            <div class="faq-item">
-                <div class="faq-question glitch" data-text="Q5: Quantum-resistant encryption?">
-                    <span>>_ Q5: Quantum-resistant encryption?</span>
-                </div>
+
+    <div class="cyber-header">
+        <h2 class="cyber-title glitch" data-text=">> ETHICAL_HACK_TOOL v4.2.1">
+            >> ETHICAL_HACK_TOOL v4.2.1
+        </h2>
+        <div class="cyber-subtitle">[SECURE_FAQ_INTERFACE]</div>
+    </div>
+
+    <div class="faq-terminal">
+        <div class="faq-scroll-container">
+            <!-- Question 1 -->
+            <div class="faq-node active" data-category="core">
+                <a href="Initialize.html"><div class="faq-question hvr-sweep" data-q="1">
+                    <span class="prompt">[root@hacktool]#</span>
+                    <span class="question">How to initialize network scanning?</span>
+                    <span class="status-led"></span>
+                </div></a>
                 <div class="faq-answer">
-                    <p>// Post-quantum cryptography algorithms currently being tested...</p>
-                </div>
-            </div>
-            
-            <!-- Add 95 more items following similar structure -->
-            <!-- Sample additional questions -->
-            <div class="faq-item">
-                <div class="faq-question glitch" data-text="Q6: Dark web monitoring?">
-                    <span>>_ Q6: Dark web monitoring?</span>
-                </div>
-                <div class="faq-answer">
-                    <p>// Specialized crawlers search hidden...</p>
+                    <div class="answer-header">
+                        <span class="hash">#a1b3c5</span>
+                        <span class="encryption-status">[AES-256_ACTIVE]</span>
+                    </div>
+                    <div class="answer-content">
+                        <p class="response">>> Basic network reconnaissance:</p>
+                        <div class="code-block">
+                            <pre>
+<span class="code-keyword">nmap</span> <span class="code-flag">-sS</span> <span class="code-flag">-T4</span> <span class="code-ip">192.168.1.0/24</span></pre>
+                        </div>
+                        <div class="annotation">
+                            <span class="warning">!</span> Requires sudo privileges
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Continue adding FAQ items until reaching 100 -->
+            <!-- Question 2 -->
+            <div class="faq-node" data-category="core">
+                <div class="faq-question hvr-sweep" data-q="2">
+                    <span class="prompt">[root@hacktool]#</span>
+                    <span class="question">Viewing intercepted packets?</span>
+                    <span class="status-led"></span>
+                </div>
+                <div class="faq-answer">
+                    <div class="answer-content">
+                        <p class="response">>> Use built-in packet analyzer:</p>
+                        <div class="code-block">
+                            <pre>
+<span class="code-keyword">hacktool</span> <span class="code-flag">--analyze</span> <span class="code-flag">-f</span> <span class="code-file">capture.pcap</span></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more questions -->
         </div>
     </div>
 </section>
 
 <style>
-    :root {
-        --cyber-green: #00ff00;
-        --matrix-rain: #0f0;
-    }
+:root {
+    --neon-green: #39FF14;
+    --cyber-teal: #00FF88;
+    --hacker-bg: #001100;
+    --terminal-text: #CCFFCC;
+}
 
-    .cyber-background {
-        position: relative;
-        overflow: hidden;
-    }
+/* Enhanced Text Visibility */
+.cyber-mainframe {
+    background: var(--hacker-bg);
+    color: var(--terminal-text);
+    border: 2px solid var(--neon-green);
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.3);
+}
 
-    .repair-bot {
-        position: absolute;
-        font-size: 2rem;
-        opacity: 0.3;
-        animation: repair 15s linear infinite;
-        z-index: -1;
-    }
+.faq-question {
+    font-size: 1.2rem;
+    padding: 1.2rem;
+    border-left: 4px solid var(--neon-green);
+    margin: 1rem 0;
+    background: rgba(0, 30, 0, 0.8);
+}
 
-    .bot-1 { top: 10%; left: -10%; }
-    .bot-2 { top: 40%; left: -15%; animation-delay: 3s; }
-    .bot-3 { top: 70%; left: -20%; animation-delay: 7s; }
+.prompt {
+    color: var(--neon-green);
+    font-weight: bold;
+    min-width: 160px;
+}
 
-    @keyframes repair {
-        0% { transform: translateX(0) rotate(0deg); }
-        100% { transform: translateX(150vw) rotate(360deg); }
-    }
+.question {
+    color: #CCFFCC;
+    letter-spacing: 0.5px;
+}
 
-    .cyber-faq {
-        border-left: 3px solid var(--cyber-green);
-        padding-left: 1.5rem;
-        position: relative;
-        background: repeating-linear-gradient(
-            0deg,
-            rgba(0, 255, 0, 0.05) 0px,
-            rgba(0, 255, 0, 0.05) 1px,
-            transparent 1px,
-            transparent 20px
-        );
-    }
+.code-block {
+    background: rgba(0, 20, 0, 0.9);
+    border: 1px solid var(--neon-green);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    font-family: 'Courier New', monospace;
+}
 
-    .faq-item {
-        margin: 2rem 0;
-        position: relative;
-        transition: all 0.3s ease;
-        transform-origin: left;
-    }
+.code-keyword {
+    color: var(--neon-green);
+}
 
-    .faq-item:hover {
-        transform: translateX(10px) skewY(-0.5deg);
-        background: linear-gradient(90deg, rgba(0,255,0,0.1) 0%, transparent 100%);
-    }
+.code-flag {
+    color: #FF5555;
+}
 
-    .faq-question {
-        color: var(--cyber-green);
-        cursor: pointer;
-        padding: 1rem;
-        border: 1px solid transparent;
-        position: relative;
-        transition: all 0.3s ease;
-    }
+.code-ip {
+    color: #00FFFF;
+}
 
-    .faq-question:hover {
-        border: 1px solid var(--cyber-green);
-        box-shadow: 0 0 15px var(--cyber-green);
-        text-shadow: 0 0 10px var(--cyber-green);
-    }
+.annotation {
+    color: #FFAA00;
+    margin-top: 1rem;
+}
 
-    .faq-question::before {
-        content: "⮕";
-        position: absolute;
-        left: -25px;
-        animation: pulse 1s infinite;
-    }
+/* Scrollable Container */
+.faq-terminal {
+    height: 70vh;
+    overflow-y: auto;
+    padding: 2rem;
+}
 
-    .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+.faq-terminal::-webkit-scrollbar {
+    width: 10px;
+    background: #002200;
+}
 
-    .faq-answer.active {
-        max-height: 500px;
-        padding: 1rem;
-        margin: 1rem 0;
-        border-left: 2px solid var(--cyber-green);
-    }
+.faq-terminal::-webkit-scrollbar-thumb {
+    background: var(--neon-green);
+    border-radius: 2px;
+}
 
-    /* Matrix rain effect */
-    .cyber-scroll::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: repeating-linear-gradient(
-            0deg,
-            rgba(0, 255, 0, 0.1) 0px,
-            rgba(0, 255, 0, 0.1) 1px,
-            transparent 1px,
-            transparent 20px
-        );
-        pointer-events: none;
-        animation: scan 15s linear infinite;
-    }
+/* Glow Effects */
+.hvr-sweep:hover {
+    text-shadow: 0 0 15px var(--neon-green);
+    transform: translateX(10px);
+}
 
-    @keyframes scan {
-        0% { background-position: 0 100vh; }
-        100% { background-position: 0 0; }
-    }
+.status-led {
+    background: #FF5555;
+    box-shadow: 0 0 15px #FF5555;
+}
+
+.scanline {
+    background: linear-gradient(
+        to bottom,
+        rgba(57, 255, 20, 0.08) 1px,
+        transparent 2px
+    );
+    background-size: 100% 4px;
+}
 </style>
-
-<script>
-    // Interactive FAQ animation
-    document.querySelectorAll('.faq-question').forEach(item => {
-        item.addEventListener('click', () => {
-            const answer = item.nextElementSibling;
-            answer.classList.toggle('active');
-            
-            // Add random glitch effect
-            if(answer.classList.contains('active')) {
-                item.style.transform = `translateX(${Math.random() * 10}px)`;
-                setTimeout(() => item.style.transform = '', 200);
-            }
-        });
-    });
-
-    // Randomize robot paths
-    document.querySelectorAll('.repair-bot').forEach(bot => {
-        bot.style.setProperty('--random-y', Math.random() * 100 + '%');
-        bot.style.animationDuration = Math.random() * 10 + 8 + 's';
-    });
-</script>

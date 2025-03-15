@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Foundations v2.4.1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
+    <style>
+        /* Cyber Base Styles */
+        :root {
+            --cyber-green: #39FF14;
+            --cyber-black: #001100;
+            --terminal-text: #CCFFCC;
+            --cyber-glow: rgba(57, 255, 20, 0.1);
+        }
+
+        body {
+            background: var(--cyber-black);
+            color: var(--terminal-text);
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+        }
+
+        .cyber-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Terminal Navigation */
+        .terminal-nav {
+            border-right: 3px solid var(--cyber-green);
+            padding-right: 2rem;
+            height: 100vh;
+            position: fixed;
+            width: 250px;
+        }
+
+        .nav-item {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-left: 4px solid var(--cyber-green);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            background: var(--cyber-glow);
+            transform: translateX(10px);
+        }
+
+        /* Main Content */
+        .terminal-content {
+            margin-left: 280px;
+            padding: 2rem;
+        }
+
+        /* Command Blocks */
+        .command-block {
+            background: #002200;
+            border: 2px solid var(--cyber-green);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .command-block::before {
+            content: "⌨";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--cyber-black);
+            padding: 5px;
+            border: 2px solid var(--cyber-green);
+        }
+
+        /* Interactive Terminal */
+        .live-terminal {
+            background: #000;
+            border: 3px solid var(--cyber-green);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            height: 400px;
+            overflow-y: auto;
+        }
+
+        .terminal-prompt {
+            color: var(--cyber-green);
+            margin-bottom: 1rem;
+        }
+
+        .terminal-input {
+            background: transparent;
+            border: none;
+            color: var(--cyber-green);
+            font-family: 'Courier New', monospace;
+            width: 80%;
+            padding: 0.5rem;
+            border-bottom: 2px solid var(--cyber-green);
+        }
+
+        /* Progress Tracker */
+        .progress-tracker {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 2px solid var(--cyber-green);
+            padding: 1rem;
+        }
+
+        .progress-item {
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .progress-item::before {
+            content: "◈";
+            position: absolute;
+            left: -20px;
+            color: var(--cyber-green);
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-container">
+        <nav class="terminal-nav">
+            <div class="nav-item">Essentials</div>
+            <div class="nav-item">File System</div>
+            <div class="nav-item">Permissions</div>
+            <div class="nav-item">Networking</div>
+            <div class="nav-item">Advanced</div>
+        </nav>
+
+        <main class="terminal-content">
+            <!-- Section 1: Terminal Essentials -->
+            <section class="command-block">
+                <h2>Terminal Fundamentals</h2>
+                <p>Master core command-line operations:</p>
+                <pre><code class="language-bash">
+# Navigation
+$ cd /path/to/directory
+$ ls -la
+$ pwd
+
+# File Operations
+$ touch newfile.txt
+$ mkdir new_directory
+$ cp file1.txt file2.txt</code></pre>
+                <button class="cyber-button">Simulate Commands</button>
+            </section>
+
+            <!-- Section 2: File Management -->
+            <section class="command-block">
+                <h2>File System Mastery</h2>
+                <div class="terminal-simulator">
+                    <div class="terminal-output" id="output"></div>
+                    <div class="terminal-prompt">[user@terminal]$ <input class="terminal-input" type="text"></div>
+                </div>
+                <pre><code class="language-bash">
+# File manipulation
+$ cat filename.txt
+$ grep "pattern" file.txt
+$ find / -name "*.log"</code></pre>
+            </section>
+
+            <!-- Section 3: Permissions -->
+            <section class="command-block">
+                <h2>Permission Protocols</h2>
+                <pre><code class="language-bash">
+# Change permissions
+$ chmod 755 filename
+$ chown user:group file
+$ sudo !!  # Rerun last command as root</code></pre>
+                <div class="permission-visualizer">
+                    <div class="perm-block">-rwxr-xr-x</div>
+                    <div class="perm-breakdown">
+                        <span class="user-perm">User: rwx</span>
+                        <span class="group-perm">Group: r-x</span>
+                        <span class="other-perm">Others: r-x</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Section -->
+            <section class="live-terminal">
+                <h3>Terminal Simulator</h3>
+                <div class="terminal-history"></div>
+                <div class="terminal-interface">
+                    <span class="prompt">[user@cyberterm]$</span>
+                    <input type="text" class="command-input">
+                </div>
+            </section>
+
+            <!-- Progress Tracker -->
+            <div class="progress-tracker">
+                <h4>Learning Progress</h4>
+                <div class="progress-item">Essentials</div>
+                <div class="progress-item">File System</div>
+                <div class="progress-item">Permissions</div>
+                <div class="progress-item">Networking</div>
+                <div class="progress-item">Advanced</div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script>
+        // Terminal Simulator Logic
+        const commandInput = document.querySelector('.command-input');
+        const terminalHistory = document.querySelector('.terminal-history');
+
+        commandInput.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') {
+                const command = commandInput.value;
+                terminalHistory.innerHTML += `<div class="history-item">
+                    <span class="prompt">[user@cyberterm]$</span> ${command}
+                </div>`;
+                
+                // Add simple command responses
+                if(command === 'help') {
+                    terminalHistory.innerHTML += `<div class="response">
+                        Available commands: clear, help, about
+                    </div>`;
+                }
+                
+                commandInput.value = '';
+                terminalHistory.scrollTop = terminalHistory.scrollHeight;
+            }
+        });
+
+        // Progress Tracking
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    const sectionId = entry.target.id;
+                    document.querySelectorAll('.progress-item').forEach(item => {
+                        item.style.color = item.textContent === sectionId ? 
+                            '#39FF14' : '#CCFFCC';
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
